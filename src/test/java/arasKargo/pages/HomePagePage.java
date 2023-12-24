@@ -18,7 +18,8 @@ public class HomePagePage {
     public WebElement hakkimizda;
 @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[3]")
 public WebElement vizyon;
-
+@FindBy(xpath = "//h1")
+public WebElement baslik;
     @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[4]")
     public WebElement yonetimEkibimiz;
 
@@ -26,15 +27,24 @@ public WebElement vizyon;
     public WebElement haberlerDuyurular;
     @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[6]")
     public WebElement reklamlarimiz;
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[32]")
+    public WebElement arasKargoSporKulubu;
 
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[34]")
+    public WebElement bizeUlasin;
 
-
-
-
-
-
-
-
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[35]")
+    public WebElement iletisim;
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[36]")
+    public WebElement genelMudurluk;
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[37]")
+    public WebElement bolgeMudurluklerimiz;
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[38]")
+    public WebElement subelerimiz;
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[39]")
+    public WebElement arasBurdaNoktalarimiz;
+    @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[10]")
+    public WebElement musterimizOlun;
 
 
 
