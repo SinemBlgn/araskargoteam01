@@ -17,4 +17,6 @@ public class HizmetlerimizPage {
     public WebElement kurumsalHizmetlerimiz;
     @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[10]")
     public WebElement ambalajUrunlerimiz;
+
+
 }
