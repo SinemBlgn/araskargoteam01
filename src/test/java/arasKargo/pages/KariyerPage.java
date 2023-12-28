@@ -19,5 +19,20 @@ public class KariyerPage {
     @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[15]")
     public WebElement Teknoloji;
 
+    @FindBy(css = "a[title='LinkedIn']")
+    public WebElement linkedIn;
+
+
+
+    @FindBy(xpath = "(a[title='Kariyer net logo']")
+    public WebElement kariyerNet;
+
+    @FindBy(xpath = "(a[@title='Secretcv logo']")
+    public WebElement secretCv;
+
+    @FindBy(xpath = "(a[@title='Eleman net logo']")
+    public WebElement elemanNet;
+
+
 
 }
