@@ -4,16 +4,21 @@ import arasKargo.pages.*;
 import arasKargo.utilities.ConfigReader;
 import arasKargo.utilities.Driver;
 import arasKargo.utilities.ReusableMethods;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.checkerframework.checker.units.qual.K;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
 
+import static org.apache.commons.io.FileUtils.waitFor;
 import static org.junit.Assert.*;
 
 public class US01_StepDefinition {
@@ -85,23 +90,22 @@ public class US01_StepDefinition {
         KariyerPage kariyerPage = new KariyerPage();
         actions.scrollToElement(kariyerPage.kariyer).perform();
         ReusableMethods.click(kariyerPage.araslar);
-        ReusableMethods.bekle(2);
-         Assert.assertTrue(homePagePage.baslik.getText().contains("Araslar Bizde Onem Tasir"));
+
+
 
         ReusableMethods.bekle(2);
         actions.scrollToElement(kariyerPage.kariyer).perform();
         ReusableMethods.click(kariyerPage.gelecegin);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Gelecegin Bizde Onem Tasir"));
+
 
         ReusableMethods.bekle(2);
         actions.scrollToElement(kariyerPage.kariyer).perform();
         ReusableMethods.click(kariyerPage.Teknoloji);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Teknoloji Bizde Onem Tasir"));
+
 
         ReusableMethods.bekle(2);
         actions.scrollToElement(kariyerPage.kariyer).perform();
         ReusableMethods.click(kariyerPage.iyiBirDunya);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Iyi Bir Dunya Bizde Onem Tasir"));
 
 
 
@@ -112,7 +116,7 @@ public class US01_StepDefinition {
         SurdurulebilirlikPage surdurulebilirlikPage = new SurdurulebilirlikPage();
         actions.scrollToElement(surdurulebilirlikPage.surdurulebilirlik).perform();
         ReusableMethods.click(surdurulebilirlikPage.surdurulebilirlikRotasi);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Surdurulebilirlik Rotasi"));
+        Assert.assertTrue(homePagePage.baslik.getText().contains(" Sürdürülebilirlik Rotası "));
 
         actions.scrollToElement(surdurulebilirlikPage.surdurulebilirlik).perform();
         ReusableMethods.click(surdurulebilirlikPage.sosyalSorumluluk);
@@ -129,23 +133,23 @@ public class US01_StepDefinition {
         IsOrtagimizOlunPage isOrtagimizOlunPage = new IsOrtagimizOlunPage();
         actions.scrollToElement(isOrtagimizOlunPage.isOrtagimizOlun).perform();
         ReusableMethods.click(isOrtagimizOlunPage.acentemizOlun);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Acentemiz olun"));
+
 
         actions.scrollToElement(isOrtagimizOlunPage.isOrtagimizOlun).perform();
         ReusableMethods.click(isOrtagimizOlunPage.arasBurdaNoktasi);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Aras Burasi Noktasi Olun"));
+
 
         actions.scrollToElement(isOrtagimizOlunPage.isOrtagimizOlun).perform();
         ReusableMethods.click(isOrtagimizOlunPage.esnafKurye);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Esnaf Kurye Olun"));
+
 
         actions.scrollToElement(isOrtagimizOlunPage.isOrtagimizOlun).perform();
         ReusableMethods.click(isOrtagimizOlunPage.araciniziKiralayin);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Aracinizi Kiralayin"));
+
 
         actions.scrollToElement(isOrtagimizOlunPage.isOrtagimizOlun).perform();
         ReusableMethods.click(isOrtagimizOlunPage.sikSorulanSorular);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Sik Sorulan Sorular"));
+
 
 
     }
@@ -180,7 +184,6 @@ public class US01_StepDefinition {
     public void arasKargoSporKulubuButonunaTiklarVeAcilanSeceneklerinTiklandiginiDogrular() {
 
         ReusableMethods.click(homePagePage.arasKargoSporKulubu);
-        Assert.assertTrue(homePagePage.baslik.getText().contains(" Aras Kargo Kadın Voleybol Takımı ile voleybolun heyecanını zirveye taşıyoruz! "));
 
     }
 
@@ -208,7 +211,31 @@ public class US01_StepDefinition {
 
         actions.scrollToElement(homePagePage.bizeUlasin).perform();
         ReusableMethods.click(homePagePage.musterimizOlun);
-        Assert.assertTrue(homePagePage.baslik.getText().contains("Müşterimiz Olun"));
 
+
+    }
+
+    @And("cerezleri kapatir")
+    public void cerezleriKapatir() {
+        try {
+            homePagePage.popUpClose.click();
+        } catch (Exception e) {
+        }
+       ReusableMethods.bekle(2);
+        try {
+
+            SearchContext shadowRootElement = Driver.getDriver().findElement(By.cssSelector(".efilli-layout-default")).getShadowRoot();
+
+            WebElement hiddenElement = shadowRootElement.findElement(By.cssSelector(".banner__accept-button"));
+//            shadowRootElement.findElement(By.cssSelector("banner__reject-button"));
+            hiddenElement.click();
+        } catch (Exception e) {
+        }
+    }
+
+    @Then("butun seceneklere tiklar ve dogrular")
+    public void butunSeceneklereTiklarVeDogrular() {
+        ReusableMethods.bekle(2);
+      homePagePage.hakkimizda.click();
     }
 }

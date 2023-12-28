@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
 
 
 public class HomePagePage {
@@ -45,6 +46,12 @@ public WebElement baslik;
     public WebElement arasBurdaNoktalarimiz;
     @FindBy(xpath = "(//a[@class='ng-tns-c588362358-0'])[10]")
     public WebElement musterimizOlun;
+@FindBy(xpath = "(//div[@class='chat-bot__title'])[1]")
+public WebElement sizeNasilYardimciOlabilirim;
+    @FindBy(xpath = "//div[@class='popup-close']//*[@xmlns='http://www.w3.org/2000/svg']")
+    public WebElement popUpClose;
+@FindBy(xpath = "//a[@class='ng-tns-c588362358-0']")
+public List<WebElement> butunSecenekler;
 
 
 
@@ -56,24 +63,7 @@ public WebElement baslik;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //Adnan(66-116)
+//Adnan(66-116)
 
 
 
