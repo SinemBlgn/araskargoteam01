@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         "junit:target/xml-report/cucumber.xml"    },
         features = "src/test/resources/features",
         glue = {"arasKargo/stepDefinition"},
-        tags = "",
+        tags = "@Tc08",
         dryRun = false,
         monochrome = false
 
